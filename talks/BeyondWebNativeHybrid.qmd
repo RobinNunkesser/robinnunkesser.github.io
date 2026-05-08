@@ -1,0 +1,77 @@
+---
+title: "Beyond Web/Native/Hybrid "
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# The Past
+
+## Web Apps (2007)
+
+> The full Safari engine is inside of iPhone. And so, you can write
+amazing Web 2.0 and Ajax apps that look exactly and behave exactly like
+apps on the iPhone. And these apps can integrate perfectly with iPhone
+services. [...] And guess what? There's no SDK that you need!
+
+Steve Jobs
+
+## Native Apps (2008)
+
+> With the SDK in iPhone 2.0 we're opening the same native APIs and tools
+we use internally.
+
+Scott Forstall
+
+## Hybrid Apps (2008)
+
+> It’s a powerful example of exactly why you might want to create a hybridized program using both iPhone web development and the SDK.
+
+Christopher Allen and Shannon Appelcline 
+
+# The Present
+
+## What is native? 
+
+## Common misconception
+
+> A native app is programmed in a platform specific language with platform specific APIs.  […] When starting new apps you should consider using Kotlin for Android and Swift for iOS, rather than Java and Objective-C. 
+
+Robert Virkus
+
+## Reality
+
+> The Android NDK is a toolset that lets you implement parts of your app in native code, using languages such as C and C++.
+
+Android Developers Site
+
+## Do three categories suffice?
+
+![](../videos/talks/CrossPlatWiki-16246.m4v)
+
+# The Future
+
+## Three main categories
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- _Endemic Apps_ Apps built with the platform SDK
+- _Pandemic Apps_ (Don’t worry, not the term for everyday use) Apps built with tools available on all relevant platforms
+- _Ecdemic Apps_ Apps built with external tools and languages
+
+:::
+::: {.column width="50%"}
+
+![](../../images/mobile/Taxonomy2.svg){#id .class height=590}\
+
+:::
+::::
+
+## Complete Overview
+
+![](../../images/mobile/black/NunkesserTaxonomyBook.png)\
+
+
+
+
+

@@ -1,0 +1,155 @@
+---
+title: "logicGP"
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# What is logicGP?
+
+## Introduction
+
+> A Framework for Literal Based Classification
+
+## At a glance
+
+- New hypothesis space for supervised learning based on literals
+- Hypotheses in the space may be represented as trees
+- Genetic Programming may be used to obtain the hypotheses
+
+
+## Classification
+
+![](../../images/talks/black/Flower-parts.svg){#id .class height=180}\
+
+
+$sepal_l$ | $sepal_w$ | $petal_l$ | $petal_w$ | Class
+--------- | --------- | --------- | --------- | ----------
+$5.1$     | $3.5$     | $1.4$     | $0.2$     | Setosa
+$7.0$	  | $3.2$     | $4.7$     | $1.4$     |	Versicolor
+$6.3$     | $3.3$     |	$6.0$     | $2.5$     | Virginica
+$\ldots$  | $\ldots$  | $\ldots$  | $\ldots$  | $\ldots$  
+
+
+## Literals
+
+- Term is commonly used in Boolean algebra
+- Atomic formulas or their negations
+- Evaluating to ```true``` or ```false```
+- Examples for classification: 
+    + sepal length$>6.0$ 
+    + sepal length$\leq 6.0$ 
+    + petal width ∈ $[1.9;2.5]$
+
+## logicGP Classification Model
+
+| $w_{seto}$ | $w_{vers}$ | $w_{virg}$ | Condition                                   |
+| ----- | ----- | ----- | ------------------------------------------- |
+|  1.00 |  0.00 |  0.00 | None below fulfilled                        |
+|  0.00 |  2.31 |  1.39 | petal width ∈ [1.4;1.6] |
+|  0.00 |  5.56 |  0.00 | sepal width ∈ [2.0;3.0] $\wedge$ petal width ∈ [0.4;1.3] |
+|  0.00 |  0.00 |  7.00 | petal length ∈ [5.2;6.9] |
+|  0.00 |  0.00 |  7.00 | petal width ∈ [1.9;2.5] |
+
+## Genetic Programming
+
+---
+
+![](../../images/talks/black/MutationsCrossoverOverview2.svg){#id .class height=690}\
+
+## Some Results
+
+![](../../images/talks/black/macroacc.svg)
+
+# Implementation
+
+## Why C\#?
+
+- Common choice for enterprise software
+- Superior performance in comparison to Python
+- More modern than Java
+
+## Existing Projects
+
+- [ML.NET](https://github.com/dotnet/machinelearning) is Microsoft's open-source machine learning (ML) framework for .NET
+    + Necessary and helpful but difficult to expand
+- [aima-csharp](https://github.com/aimacode/aima-csharp) provides C\# implementations for algorithms discussed in Artificial Intelligence - A Modern Approach
+    + Incomplete and outdated
+- [GeneticSharp](https://github.com/giacomelli/GeneticSharp) is a Genetic Algorithm library
+    + Focussed on Genetic Algorithms and not Genetic Programming
+- [Genetica](https://github.com/pedrodbs/Genetica) is a Genetic Programming library
+    + Outdated
+
+## New Open Source Projects
+
+- [Italbytz.ML](https://github.com/Italbytz/nuget-ml) provides extensions for ML.NET necessary for the implementation of custom algorithms
+- [Italbytz.Ports.Algorithms.AI](https://github.com/Italbytz/nuget-ports-algorithms-ai) and [Italbytz.Adapters.Algorithms.AI](https://github.com/Italbytz/nuget-adapters-algorithms-ai)
+    + Provide C\# interfaces and implementations for algorithms discussed in Artificial Intelligence - A Modern Approach
+    + Offers Genetic Programming library for the implementation of logicGP
+    + Genetic and Evolutionary Computation library inspired by [FrEAK](https://sourceforge.net/projects/freak427/) planned
+
+# Genetic and Evolutionary Computation Library
+
+## FrEAK
+
+![](../../images/talks/freak.png){#id .class height=590}\
+
+---
+
+![](../../images/talks/freak3.png){#id .class height=590}\
+
+## Current Situation
+
+- Very pragmatic approach with focus on logicGP
+- No focus on UI
+- Generalizability and expandability was maintained
+- Greater use of the library in teaching planned
+- Further development in cooperation with external Open Source developers would be great
+
+## (1+1) EA
+
+```csharp
+var onePlusOneEA = new EvolutionaryAlgorithm
+{
+    FitnessFunction = new OneMax(),
+    SearchSpace = new BitString(),
+    AlgorithmGraph = new OnePlusOneEAGraph()
+};
+onePlusOneEA.Initialization = new RandomInitialization(onePlusOneEA);
+onePlusOneEA.StoppingCriteria =
+[
+    new GenerationStoppingCriterion(onePlusOneEA)
+];
+await onePlusOneEA.Run();
+```   
+
+---
+
+```csharp
+public class OnePlusOneEAGraph : OperatorGraph
+{
+    public OnePlusOneEAGraph()
+    {
+        Start = new Start();
+        Finish = new Finish();
+        var mutation = new StandardMutation();
+        var selection = new CutSelection();
+        Start.AddChildren(mutation, selection);
+        mutation.AddChildren(selection);
+        selection.AddChildren(Finish);
+    }
+}
+```
+
+---
+
+```bash
+% dotnet test --filter "Name=TestOnePlusOneEA"
+Gen | Fit | Genotype
+--- | --- | ----------------------------------------------------------------
+  1 |  26 | 0011001000011010000100100110100110000000010001001011101110010111 
+  2 |  26 | 0011001000011010000100100110100110000000010001001011101110010111 
+  3 |  26 | 0011001000011010000100100110100110000000010001101011101010010111 
+  4 |  26 | 0011001000011010000100100110100110000000010001101011101010010111 
+  5 |  28 | 0011001000011010000100100110100110000100010001101011101110010111 
+...
+```

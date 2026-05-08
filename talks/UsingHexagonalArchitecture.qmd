@@ -1,0 +1,304 @@
+---
+title: "Using Hexagonal Architecture for Mobile Applications"
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# Architectural Goals
+
+## Overview
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Testability
+- Separation of application and domain logic
+- Loosely coupled User Interface
+- Independence
+    + of external frameworks
+    + of external agencies
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/joshua-earle-Dwheufds6kQ-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@joshuaearle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Earle</a> on <a href="https://unsplash.com/s/photos/overview?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+    
+## Mobile Applications
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- No different goals from general applications
+- Difference in testability
+- Existence of code not runnable on development hardware 
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/balazs-ketyi-b9rPuUQ_YSs-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@balazsketyi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Balázs Kétyi</a> on <a href="https://unsplash.com/s/photos/mobile-application?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+# Architectural Choices
+
+## Overview
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- MVX (MVC, MVVM, MVP, MVU, ...)
+- Mobile-only Architecture
+- General Software Architecture
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/joshua-earle-Dwheufds6kQ-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@joshuaearle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Earle</a> on <a href="https://unsplash.com/s/photos/overview?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+
+## MVX
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Not an Architecture but a high-level design pattern
+- Not sufficient for non trivial apps
+- May be combined with a software architecture
+
+:::
+::: {.column width="50%"}
+
+![](../../images/sd/black/applemvc.svg)
+
+:::
+::::
+
+## Mobile-only Architecture
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Often OS specific
+- Often tightly integrated with only one shape of MVX
+
+:::
+::: {.column width="50%"}
+
+![](../../images/sd/black/mobileonlyarch.svg)
+
+:::
+::::
+
+
+## Software Architecture
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Not clear if fitting for mobile applications
+- Scant research
+
+:::
+::: {.column width="50%"}
+
+![](../../images/sd/black/bci.svg)
+
+:::
+::::
+
+# Choosing a Software Architecture
+
+## Overview
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- BCE (Boundary-Control-Entity) 
+- DDD (Domain Driven Design)
+- Hexagonal Architecture (aka Ports and Adapters)
+- Onion Architecture
+- Clean Architecture
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/joshua-earle-Dwheufds6kQ-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@joshuaearle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Earle</a> on <a href="https://unsplash.com/s/photos/overview?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+
+## Clean Architecture
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Very popular
+- Many misleading mobile implementations
+
+:::
+::: {.column width="50%"}
+
+![](../../images/sd/cleanarchcolor.png)
+
+:::
+::::
+
+## Hexagonal Architecture
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Shares base with clean architecture
+- Easy to implement and extend
+
+:::
+::: {.column width="50%"}
+
+![](../../images/sd/hexarchcolor.png)
+
+:::
+::::
+
+
+# Considerations for Mobile
+
+## Overview
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Modularity
+- Dependencies
+- Concurrency
+- Platform Dependency
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/joshua-earle-Dwheufds6kQ-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@joshuaearle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joshua Earle</a> on <a href="https://unsplash.com/s/photos/overview?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+
+## Modularity
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Seperate into packages
+- Use built-in approach
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/ashkan-forouzani-m0l9NBCivuk-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@ashkfor121?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ashkan Forouzani</a> on <a href="https://unsplash.com/s/photos/puzzle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+  
+
+## Dependencies
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Either
+
+- Dependency Injection Framework
+- Manually configurable dependencies
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/sara-bakhshi-MfnX4XtGnvU-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@sarabakhshi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sara Bakhshi</a> on <a href="https://unsplash.com/s/photos/injection?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+  
+
+## Concurrency
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Use newest built-in general approach
+- Should be part of the ports
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/faris-mohammed-Rqv4AWbvPjg-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@pkmfaris?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Faris Mohammed</a> on <a href="https://unsplash.com/s/photos/parallel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+  
+
+## Platform Dependency
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Application is always independent
+- UI may be dependent
+- Infrastructure should be split into dependent and independent parts
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/lee-easton-wfvUPYFeyvo-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@leeston?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lee Easton</a> on <a href="https://unsplash.com/s/photos/platform?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+
+# Conclusion
+
+##
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Most mobile applications should use a software architecture
+- Hexagonal Architecture is recommended
+    + Achieves architectural goals
+    + Flexible
+    + Extendible
+- Mobile specific challenges can be addressed
+
+:::
+::: {.column width="50%"}
+
+![](../../images/unsplash/patrick-perkins-Pg44v2M2S6k-unsplash.jpg)
+
+<span style='font-size: xx-small;'>Photo by <a href="https://unsplash.com/@patrickperkins?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Perkins</a> on <a href="https://unsplash.com/s/photos/end?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+
+:::
+::::
+  

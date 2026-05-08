@@ -1,0 +1,183 @@
+---
+title: "Highly Interpretable Prediction Models for SNP Data"
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# Highly Interpretable Prediction Models for SNP Data
+
+# Introduction
+
+## Single Nucleotide Polymorphisms (SNPs)
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Common variation at a single position in a DNA sequence among individuals
+- Two possible alleles resulting in three possible genotypes
+    + homozygous A
+    + homozygous B 
+    + heterozygous AB
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/Dna-SNP.png)
+<span style='font-size: xx-small;'>By SNP model by David Eccles (gringer), <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=2355125">Link</a></span>
+
+:::
+::::
+
+---
+
+
+## Interpretability 
+
+> An interpretable model is [...] following a domain-specific set of constraints that make reasoning processes understandable. [...] 
+> Logical models [...] are among the most popular algorithms [...], since their statements provide human-understandable reasons for each prediction.
+
+<span style='font-size: xx-small;'>Rudin et al. (2021) Interpretable Machine Learning</span>
+
+## Domain-specific constraints
+
+> It is well-known that in the analysis of genetic features such as SNPs, interactions, e.g., gene-gene interactions [...] and gene-environment interactions [...], play a crucial role.
+
+<span style='font-size: xx-small;'>Lau et al. (2024) logicDT: a procedure for identifying response‑associated interactions between binary predictors</span>
+
+## Case Control Studies on Gene-Gene Interactions 
+
+$SNP_1$  | $SNP_2$  | $\ldots$ | $SNP_P$  | Case
+-------- | -------- | -------- | -------- | --
+0        | 2        | $\ldots$ | 1        | 0
+1        | 2        | $\ldots$ | 0        | 0
+$\ldots$ | $\ldots$ | $\ldots$ | $\ldots$ | $\ldots$
+2        | 0        | $\ldots$ | 0        | 1
+
+# State of the Art
+
+## Microsoft's AutoML
+
+- AveragedPerceptron
+- SdcaLogisticRegression
+- SdcaNonCalibrated
+- SymbolicSgdLogisticRegression
+- LbfgsLogisticRegression
+- LightGbm
+- FastTree
+- FastForest
+- Gam
+- FieldAwareFactorizationMachine
+- Prior
+- LinearSvm
+
+## logicDT
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Decision tree based method 
+- High interpretability
+- High prediction performance
+- Necessity of hyperparameter optimization
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/logicDTscrime_7.svg)
+
+:::
+::::
+
+# Further Established Learning Methods
+
+## logicFS
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Reports important interactions
+- High interpretability
+- Interactions are considered seperately
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/logicFSscrime.svg)
+
+:::
+::::
+
+
+## GPAS / logicGP
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- GPAS is a special case of the unreleased logicGP
+- Models based on Disjunctive Normal Form of logical expressions
+- High interpretability
+- No automatic model selection
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/interactions_pruned.svg)
+
+:::
+::::
+
+# Automatic Model Selection
+
+## Algorithm for GPAS
+
+![](../../images/talks/black/modelselection.svg)
+
+## Consolidation
+
+- Discard all models that do only appear in one run on the folds
+- Discard all models where a model of the same size with a better average accuracy on the validation data exists
+
+## Selection
+
+- Discard models that do not at least offer $1\%$ more accuracy than all smaller models
+- Choose the model with the greatest accuracy
+
+# Experiments
+
+## Simulated Data
+
+- Standard simulation of ```R``` package ```scrime```
+- 100 runs on training and test data with 1.000 observations each
+
+![](../../images/talks/black/scrime.svg)
+
+## Results
+
+![](../../images/talks/black/gpasacc.svg)
+
+# logicGP
+
+## Introduction
+
+- logicGP is a generalization of GPAS
+- Multiclass classification is possible
+- Offers better predictions for interactions with less SNPs
+- Future versions will enable the analysis of gene-environment interactions
+
+## Example Model
+
+$w_{Control}$ | $w_{Case}$    | Condition
+------------- | ------------- | ------------------------------------------------------
+1.38          | 0.74          | $SNP_6 \in \{1\}$
+0.35          | 1.78          | $(SNP_9 \in \{1\})(SNP_3 \in \{1\})(SNP_10 \in \{1\})$
+0.74          | 1.35          | $SNP_7 \in \{1\}$
+0.62          | 0.38          | All above false
+
+## First Results
+
+![](../../images/talks/black/gpasaccgrouped.svg)
+
+
+
+
+# Thank you for your attention!

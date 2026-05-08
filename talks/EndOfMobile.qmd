@@ -1,0 +1,144 @@
+---
+title: "The End of Mobile Software Engineering (As We Know It)"
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# Mobile Software Engineering
+
+## Before 2008
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](../../images/talks/BlackBerry-Curve-8320-313.png)
+
+:::
+::: {.column width="50%"}
+
+**Complex installation**
+
+![](../../images/talks/black/operamini.png)
+
+<span style='font-size: xx-small;'>Source: <a href="http://www.operamini.com">http://www.operamini.com</a></span>
+
+:::
+::::
+
+## 2008
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](../../images/talks/App_Store_10th_anniversary_iPhone_first_gen_07102018_inline.jpg.large_2x.png)
+
+:::
+::: {.column width="50%"}
+
+**Introduction of the App Store**
+
+![](../../images/mobile/one-billion-apps.png)
+
+:::
+::::
+
+## Exponential Growth
+
+![](../../images/talks/black/appstore.svg)
+
+<span style='font-size: xx-small;'>Source: <a href="https://www.pocketgamer.biz/metrics/app-store/app-count/">https://www.pocketgamer.biz/metrics/app-store/app-count/</a></span>
+
+
+## Recognized Research Need
+
+> Despite the development of 300,000+ mobile applications, there’s still not much formal research around their engineering processes.
+
+Wasserman (2010)
+
+---
+
+> [...] the growth of this new computing platform has outpaced the software engineering work tailored to mobile application development.
+
+Dehlinger and Dixon (2011)
+
+## Research Agenda of Wasserman (2010)
+
+- User Experience 
+- Code reuse
+- Networking
+- Energy efficiency
+- Data integrity
+- Testing
+- Portability and cross-platform development
+
+## Dedicated Conferences
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](../../images/talks/black/DeMobile2013.svg)
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/MobileSoft2014.svg)
+
+:::
+::::
+
+# The End of Mobile Software Engineering (As We Know It)...
+
+## MOBILESoft vs ICSE
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](../../images/talks/black/mobilesoftpubs.svg) 
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/icsemobilepubs.svg)
+
+:::
+::::
+
+## Research Agenda
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](../../images/talks/black/wassermancits.svg)
+
+:::
+::: {.column width="50%"}
+
+![](../../images/talks/black/sekeys_all.svg) 
+
+:::
+::::
+
+# ...And I Feel Fine 
+
+## Mobile Is Eating The World
+
+![](../../images/talks/black/oshistory.svg) 
+
+## End of Need for Separate Research
+
+- Mobile is more relevant than ever
+- Separate research need is coming to an end
+- Good opportunities for future research 
+
+## Existing Research
+
+- Reconsider research results
+- Is mobile-specific research generalizable?
+- Are there undiscovered _classic_ results applicable to mobile software engineering?
+
+## Future Research
+
+- Mobile-related research should consider generalizability
+- Software Engineering research should consider implications for mobile devices 
+
+# Thank you for your attention!
