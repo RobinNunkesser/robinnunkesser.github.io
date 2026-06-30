@@ -1,0 +1,143 @@
+---
+title: "Interpretable Rule-Based Models for Multiclass Classification"
+author: "Prof. Dr. Robin Nunkesser"
+format: revealjs
+---
+
+# DATA 2026
+
+## Context
+
+- Focus: interpretable multiclass classification
+- Data type: tabular data
+- Model families: rule sets, rule lists, decision trees
+- Goal: bridge communities and model spaces
+
+## Why This Topic?
+
+- Interpretability is critical in high-stakes settings
+- Multiclass tasks are common and often harder to explain
+- Research is spread across separate communities
+- Cross-community integration is still limited
+
+# Interpretable Hypothesis Spaces
+
+## Rule Set
+
+- Unordered collection of rules
+- Multiple matching rules can fire for one instance
+- Prediction via voting or score aggregation
+- Default rule when no rule matches
+
+## Rule List
+
+- Ordered sequence of rules
+- First matching rule determines prediction
+- Compact and easy to read
+- Limited flexibility compared to rule sets
+
+## Decision Tree
+
+- Hierarchical sequence of feature tests
+- Leaves define class prediction
+- Highly intuitive visualization
+- Can become large without optimization
+
+## Multiclass Handling
+
+- Generic strategy: One-vs-All or One-vs-One
+- Problem: often reduces direct interpretability
+- Better: native multiclass models
+- Rule sets can use class-wise score aggregation
+
+## Scoring View
+
+- Each fired rule contributes class scores
+- Example notation: $p_c \mathrel{+}= v$
+- Predict class with highest cumulative score
+- Same concept can also enrich lists and trees
+
+# Comparison of Model Families
+
+## Strengths and Trade-offs
+
+| Family | Main strength | Main limitation |
+| --- | --- | --- |
+| Rule sets | Flexible decision boundaries | Contradictions and uncovered instances possible |
+| Rule lists | Very readable decision flow | Less expressive than full rule sets |
+| Decision trees | Intuitive global structure | Can grow large and less compact |
+
+## Key Structural Relation
+
+- Rule sets can represent rule lists
+- Rule sets can represent decision trees
+- Reverse direction is possible but may replicate structure
+- This motivates a shared representational view
+
+# Cross-Community Perspective
+
+## Potential Siloing
+
+- Methods originate in ML, data mining, bioinformatics, EC
+- Citation links are uneven across communities
+- Evolutionary and non-evolutionary lines are weakly connected
+- Integration opportunities are substantial
+
+## Why This Matters
+
+- Strong methods may be overlooked across communities
+- Benchmarks and tooling differ by community
+- Comparability and transfer suffer
+- Unified model-space thinking can reduce fragmentation
+
+# Experimental Comparison (Preprint)
+
+## Selection Criteria
+
+- Native multiclass capability
+- Open-source availability
+- Explicit interpretability goal
+
+## Setup
+
+- UCI benchmark datasets (binary and multiclass)
+- Repeated runs with different random seeds
+- Metrics: F1 score and model size proxy
+- Runtime discussed qualitatively
+
+## Main Observations
+
+- OneR and Slipper underperform in our runs
+- CART often produces larger models
+- HS can reduce tree size while preserving quality
+- RuleKit and logicGP show strong performance-interpretability balance
+
+# Toward Scored Rule Sets
+
+## Unifying Idea
+
+- Use scored rule sets as a common hypothesis space
+- Represent and compare models from different families uniformly
+- Enable transformations across algorithm outputs
+- Retain interpretability with competitive performance
+
+## Practical Outlook
+
+- Better compaction for evolutionary rule systems
+- Broader tooling integration (for example scikit-learn style interfaces)
+- Shared package for scored-rule-set workflows
+- Stronger cross-community benchmarking standards
+
+# Takeaways
+
+## Summary
+
+- Interpretable multiclass learning is feasible and competitive
+- Rule sets, rule lists, and trees are deeply connected
+- Cross-community siloing is real but addressable
+- Scored rule sets provide a promising unifying direction
+
+## Thank you
+
+- DATA 2026
+- Questions and discussion welcome
